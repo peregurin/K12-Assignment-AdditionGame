@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class Add : MonoBehaviour
 {
@@ -20,8 +18,8 @@ public class Add : MonoBehaviour
 
     private void GetQuestion()
     {
-        number1 = (int)UnityEngine.Random.Range(0f, 9f);
-        number2 = (int)UnityEngine.Random.Range(0f, 9f);
+        number1 = (int)Random.Range(0f, 9f);
+        number2 = (int)Random.Range(0f, 9f);
         if(number2 > maxAns - number1)
         {
             number2 = maxAns - number1;
@@ -33,9 +31,10 @@ public class Add : MonoBehaviour
     public void setAns(string text)
     {
         userAns = int.Parse(text);
+        feedback.clearScoopStack();
         if (number1 + number2 == userAns)
         {
-            feedback.clearScoopStack();
+            
             feedback.refreshFeedbackC(userAns);
             GetQuestion();
         }
