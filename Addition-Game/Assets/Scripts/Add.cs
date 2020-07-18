@@ -27,7 +27,6 @@ public class Add : MonoBehaviour
             number2 = maxAns - number1;
         }
         questionText.ShowQuestionOnScreen(number1, number2);
-        //answerText.ClearInputField();
         Debug.Log(number1 + "+" + number2);
     }
 
@@ -36,7 +35,8 @@ public class Add : MonoBehaviour
         userAns = int.Parse(text);
         if (number1 + number2 == userAns)
         {
-            feedback.refreshFeedbackC();
+            feedback.clearScoopStack();
+            feedback.refreshFeedbackC(userAns);
             GetQuestion();
         }
         else
