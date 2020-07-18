@@ -11,7 +11,6 @@ public class Add : MonoBehaviour
     public int maxAns = 9;
 
     public QuestionTextController questionText;
-    public AnswerTextController answerText;
     public CorrectOrNot feedback;
 
     private void Start()
@@ -32,19 +31,16 @@ public class Add : MonoBehaviour
         Debug.Log(number1 + "+" + number2);
     }
 
-    private void Update()
+    public void setAns(string text)
     {
-        userAns = int.Parse(Input.inputString);
-        Debug.Log(userAns);
-        if(number1 + number2 == userAns)
+        userAns = int.Parse(text);
+        if (number1 + number2 == userAns)
         {
-            //Debug.Log("correct");
             feedback.refreshFeedbackC();
             GetQuestion();
         }
         else
         {
-            //Debug.Log("wrong");
             feedback.refreshFeedbackW();
             GetQuestion();
         }
